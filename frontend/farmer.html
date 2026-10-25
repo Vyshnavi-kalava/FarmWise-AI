@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#176b45">
+    <title>FarmWise AI | Farmer Dashboard</title>
+    <link rel="stylesheet" href="css/farmer.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <a class="brand" href="farmer.html" aria-label="FarmWise AI home">
+            <span class="brand-mark">F</span>
+            <span>
+                FarmWise <strong>AI</strong>
+                <small id="brandSubtitle">Smart farming assistant</small>
+            </span>
+        </a>
+
+        <div class="header-actions">
+            <span class="status" id="assistantStatus">
+                <span class="status-dot"></span>
+                <span id="assistantStatusText">Farming assistant</span>
+            </span>
+
+            <label for="languageSelect" id="languageLabel" class="language-label">Language</label>
+
+            <select id="languageSelect" class="language-select" aria-label="Select language">
+                <option value="te">తెలుగు</option>
+                <option value="en" selected>English</option>
+                <option value="hi">हिन्दी</option>
+            </select>
+
+            <button id="logoutBtn" class="btn btn-outline" type="button">
+                <span aria-hidden="true">↪</span>
+                Log out
+            </button>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <section class="welcome">
+            <div>
+                <p class="eyebrow" id="welcomeEyebrow">
+                    YOUR FARMING COMPANION
+                </p>
+
+                <h1 id="welcomeTitle">Find the right farm inputs.</h1>
+
+                <p id="welcomeDescription">
+                    Check dealer-listed stock, compare prices, and find stores
+                    near your village.
+                </p>
+            </div>
+
+            <div class="welcome-icon" aria-hidden="true">🌱</div>
+        </section>
+
+        <section class="search-panel" aria-labelledby="searchHeading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow" id="searchEyebrow">FARM INPUTS</p>
+                    <h2 id="searchHeading">What do you need today?</h2>
+                </div>
+            </div>
+
+            <form id="productSearchForm">
+                <label for="productQuery" id="productQueryLabel">
+                    Search for a product
+                </label>
+
+                <div class="search-row">
+                    <input id="productQuery" name="q" type="search" placeholder="Try urea, DAP, seeds or pesticides"
+                        autocomplete="off">
+
+                    <button id="voiceSearchBtn" class="btn btn-outline" type="button"
+                        aria-label="Search using your voice">
+                        🎙️ <span id="voiceSearchText">Voice</span>
+                    </button>
+
+                    <button id="searchBtn" class="btn btn-primary" type="submit">
+                        Search
+                    </button>
+                </div>
+
+                <p id="voiceStatus" class="helper" aria-live="polite">
+                    Type your search or use voice search.
+                </p>
+
+                <div class="filters">
+                    <div class="field">
+                        <label for="villageInput" id="villageLabel">
+                            Village
+                        </label>
+
+                        <input id="villageInput" name="village" type="text" placeholder="Enter village">
+                    </div>
+
+                    <div class="field">
+                        <label for="districtInput" id="districtLabel">
+                            District
+                        </label>
+
+                        <input id="districtInput" name="district" type="text" placeholder="Enter district">
+                    </div>
+
+                    <button id="clearFiltersBtn" class="btn btn-light" type="button">
+                        Clear filters
+                    </button>
+                </div>
+            </form>
+
+            <div class="quick-searches" id="quickSearches" aria-label="Popular products">
+                <span id="popularLabel">Popular:</span>
+
+                <button type="button" class="chip" data-product="urea">
+                    Urea
+                </button>
+
+                <button type="button" class="chip" data-product="DAP">
+                    DAP
+                </button>
+
+                <button type="button" class="chip" data-product="seeds">
+                    Seeds
+                </button>
+
+                <button type="button" class="chip" data-product="pesticides">
+                    Pesticides
+                </button>
+            </div>
+        </section>
+
+        <section class="results-section" aria-labelledby="resultsHeading">
+            <div class="results-header">
+                <div>
+                    <h2 id="resultsHeading">Available farm inputs</h2>
+
+                    <p id="resultsSummary">
+                        Search to view available stock from registered stores.
+                    </p>
+                </div>
+            </div>
+
+            <div id="messageBox" class="message" role="status" aria-live="polite">
+                Enter a product and select Search to find available stock.
+            </div>
+
+            <div id="productResults" class="product-grid"></div>
+        </section>
+
+        <section class="stores-section" aria-labelledby="storesHeading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow" id="storesEyebrow">LOCAL DEALERS</p>
+
+                    <h2 id="storesHeading">Find a farm-input store</h2>
+
+                    <p class="section-description" id="storesDescription">
+                        Explore registered stores matching your village
+                        or district.
+                    </p>
+                </div>
+
+                <button id="findStoresBtn" class="btn btn-outline" type="button">
+                    Find stores
+                </button>
+            </div>
+
+            <div id="storeResults" class="store-grid"></div>
+        </section>
+
+        <footer class="footer">
+            <p id="footerTagline">
+                FarmWise AI · Make informed farming decisions.
+            </p>
+
+            <p id="footerDisclaimer">
+                Stock and prices are based on dealer-provided records.
+            </p>
+        </footer>
+    </main>
+
+    <script src="js/farmer-config.js"></script>
+    <script src="js/farmer.js" defer></script>
+</body>
+
+</html>

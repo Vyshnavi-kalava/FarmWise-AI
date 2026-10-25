@@ -1,0 +1,1078 @@
+/* =========================================
+   DEALER DASHBOARD
+   Smart Urea Management System
+   Theme: Same as Farmer Dashboard
+========================================= */
+
+.dealer-layout {
+    --dealer-primary: #176b45;
+    --dealer-primary-dark: #105438;
+    --dealer-text: #26352d;
+    --dealer-muted: #718078;
+    --dealer-border: #e1e9e3;
+    --dealer-surface: #ffffff;
+    --dealer-background: #f5f8f5;
+
+    display: flex;
+    min-height: 100vh;
+    background: var(--dealer-background);
+    color: var(--dealer-text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.dealer-layout .sidebar {
+    width: 245px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 18px 20px;
+    background: #ffffff;
+    border-right: 1px solid var(--dealer-border);
+}
+
+.dealer-layout .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 8px 32px;
+}
+
+.dealer-layout .brand-icon {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background: var(--dealer-primary);
+    color: #ffffff;
+    border-radius: 12px;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.dealer-layout .brand h2 {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+}
+
+.dealer-layout .brand p {
+    margin: 5px 0 0;
+    color: var(--dealer-muted);
+    font-size: 12px;
+}
+
+.dealer-layout .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dealer-layout .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 14px;
+    border-radius: 9px;
+    color: #526b5c;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dealer-layout .nav-link span {
+    width: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.dealer-layout .nav-link:hover {
+    background: #eaf5ee;
+    color: var(--dealer-primary);
+}
+
+.dealer-layout .nav-link.active {
+    background: #eaf5ee;
+    color: var(--dealer-primary);
+}
+
+.dealer-layout .sidebar-bottom {
+    margin-top: auto;
+    padding: 22px 8px 0;
+    border-top: 1px solid var(--dealer-border);
+}
+
+.dealer-layout .sidebar-bottom p {
+    margin: 0 0 7px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.dealer-layout .sidebar-bottom span {
+    color: var(--dealer-muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   MAIN CONTENT AND HEADER
+========================================= */
+
+.dealer-layout .main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 32px;
+}
+
+.dealer-layout .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.dealer-layout .eyebrow {
+    margin: 0 0 9px;
+    color: var(--dealer-primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.dealer-layout .topbar h1 {
+    margin: 0;
+    font-size: clamp(25px, 3vw, 32px);
+    letter-spacing: -1px;
+}
+
+.dealer-layout .page-subtitle {
+    margin: 9px 0 0;
+    color: var(--dealer-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Dealer profile */
+
+.dealer-layout .profile-chip {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 10px 14px;
+    background: #ffffff;
+    border: 1px solid var(--dealer-border);
+    border-radius: 12px;
+}
+
+.dealer-layout .profile-avatar {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #eaf5ee;
+    color: var(--dealer-primary);
+    font-weight: 800;
+}
+
+.dealer-layout .profile-chip strong,
+.dealer-layout .profile-chip span {
+    display: block;
+}
+
+.dealer-layout .profile-chip strong {
+    font-size: 13px;
+}
+
+.dealer-layout .profile-chip span {
+    margin-top: 4px;
+    color: var(--dealer-muted);
+    font-size: 11px;
+}
+
+/* =========================================
+   SUMMARY CARDS
+========================================= */
+
+.dealer-layout .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 26px;
+}
+
+.dealer-layout .summary-card {
+    min-width: 0;
+    padding: 22px;
+    background: var(--dealer-surface);
+    border: 1px solid var(--dealer-border);
+    border-radius: 14px;
+    box-shadow: 0 5px 22px rgba(30, 65, 43, 0.055);
+}
+
+.dealer-layout .summary-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    color: var(--dealer-muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.dealer-layout .summary-icon {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background: #eaf5ee;
+    color: var(--dealer-primary);
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.dealer-layout .summary-card h2 {
+    margin: 18px 0 8px;
+    font-size: clamp(23px, 2.4vw, 30px);
+    letter-spacing: -0.8px;
+    overflow-wrap: anywhere;
+}
+
+.dealer-layout .summary-card p {
+    margin: 0;
+    color: var(--dealer-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* =========================================
+   CONTENT PANELS
+========================================= */
+
+.dealer-layout .content-card {
+    margin-bottom: 24px;
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid var(--dealer-border);
+    border-radius: 14px;
+    box-shadow: 0 5px 22px rgba(30, 65, 43, 0.055);
+}
+
+.dealer-layout .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.dealer-layout .section-heading h2 {
+    margin: 0;
+    font-size: 19px;
+    letter-spacing: -0.3px;
+}
+
+.dealer-layout .section-heading p {
+    margin: 7px 0 0;
+    color: var(--dealer-muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.dealer-layout .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 41px;
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.dealer-layout .btn-primary {
+    background: var(--dealer-primary);
+    color: #ffffff;
+}
+
+.dealer-layout .btn-primary:hover {
+    background: var(--dealer-primary-dark);
+}
+
+.dealer-layout .btn-secondary {
+    background: #ffffff;
+    color: var(--dealer-text);
+    border-color: #d5e2d8;
+}
+
+.dealer-layout .btn-secondary:hover {
+    background: #f5f8f5;
+    border-color: #b8d5c1;
+}
+
+/* =========================================
+   INVENTORY TABLE
+========================================= */
+
+.dealer-layout .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.dealer-layout table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.dealer-layout thead {
+    background: #f5f8f5;
+}
+
+.dealer-layout th {
+    padding: 14px 15px;
+    color: #718078;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.dealer-layout td {
+    padding: 17px 15px;
+    border-bottom: 1px solid #eaf0eb;
+    font-size: 13px;
+}
+
+.dealer-layout tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.dealer-layout tbody tr:hover {
+    background: #f8fbf8;
+}
+
+.dealer-layout .table-message {
+    padding: 30px 15px;
+    color: var(--dealer-muted);
+    text-align: center;
+    white-space: normal;
+}
+
+/* =========================================
+   FORECAST PLACEHOLDER
+   Only applies if used in the HTML
+========================================= */
+
+.dealer-layout .forecast-placeholder {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 22px;
+    background: #f5f8f5;
+    border: 1px solid #e1e9e3;
+    border-radius: 12px;
+}
+
+.dealer-layout .forecast-placeholder-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background: #eaf5ee;
+    color: var(--dealer-primary);
+    border-radius: 11px;
+    font-size: 23px;
+}
+
+.dealer-layout .forecast-placeholder strong {
+    font-size: 14px;
+}
+
+.dealer-layout .forecast-placeholder p {
+    margin: 7px 0 0;
+    color: var(--dealer-muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   STATUS MESSAGES
+========================================= */
+
+.dealer-layout .message {
+    margin-bottom: 20px;
+    padding: 13px 16px;
+    border: 1px solid var(--dealer-border);
+    border-radius: 9px;
+    background: #ffffff;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.dealer-layout .hidden {
+    display: none;
+}
+
+/* =========================================
+   DASHBOARD FOOTER
+========================================= */
+
+.dealer-layout .dashboard-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    padding: 8px 0 0;
+    color: var(--dealer-muted);
+    font-size: 11px;
+}
+
+/* =========================================
+   INVENTORY UPDATE AND REGISTER STORE MODALS
+========================================= */
+
+.inventory-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.inventory-modal.hidden {
+    display: none;
+}
+
+.inventory-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 48, 33, 0.48);
+    backdrop-filter: blur(3px);
+}
+
+.inventory-modal-panel {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 520px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e1e9e3;
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(22, 48, 33, 0.18);
+    animation: modal-appear 0.2s ease-out;
+}
+
+@keyframes modal-appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Modal heading */
+
+.inventory-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.inventory-modal-header h2 {
+    margin: 0;
+    color: #26352d;
+    font-size: 23px;
+    letter-spacing: -0.5px;
+}
+
+.inventory-modal-header .eyebrow {
+    margin: 0 0 8px;
+    color: #176b45;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+
+.inventory-modal-header p:last-child {
+    margin: 8px 0 0;
+    color: #718078;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.modal-close-button {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid #e1e9e3;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #526b5c;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.modal-close-button:hover {
+    background: #eaf5ee;
+    color: #176b45;
+}
+
+/* Selected product */
+
+.modal-product-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+    padding: 14px;
+    border: 1px solid #e1e9e3;
+    border-radius: 11px;
+    background: #f5f8f5;
+}
+
+.modal-product-icon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #eaf5ee;
+    color: #176b45;
+    font-size: 21px;
+}
+
+.modal-product-info strong,
+.modal-product-info .form-hint {
+    display: block;
+}
+
+.modal-product-info strong {
+    margin-top: 4px;
+    color: #26352d;
+    font-size: 14px;
+}
+
+.form-hint {
+    color: #718078;
+    font-size: 11px;
+}
+
+/* Modal form fields */
+
+.modal-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 14px;
+}
+
+.inventory-modal .form-group {
+    min-width: 0;
+}
+
+.inventory-modal .modal-price-field {
+    grid-column: 1 / -1;
+}
+
+.inventory-modal .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #26352d;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.inventory-modal .form-group label span {
+    color: #718078;
+    font-weight: 500;
+}
+
+.inventory-modal .form-group input,
+.inventory-modal .form-group select,
+.inventory-modal .form-group textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 45px;
+    padding: 11px 12px;
+    border: 1px solid #d5e2d8;
+    border-radius: 9px;
+    outline: none;
+    background: #ffffff;
+    color: #26352d;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inventory-modal .form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.inventory-modal .form-group input::placeholder,
+.inventory-modal .form-group textarea::placeholder {
+    color: #9aa79e;
+    font-size: 12px;
+}
+
+.inventory-modal .form-group input:focus,
+.inventory-modal .form-group select:focus,
+.inventory-modal .form-group textarea:focus {
+    border-color: #176b45;
+    box-shadow: 0 0 0 3px rgba(23, 107, 69, 0.12);
+}
+
+/* Available stock preview */
+
+.modal-availability-preview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 22px;
+    padding: 14px;
+    border: 1px solid #dce9e1;
+    border-radius: 10px;
+    background: #f4faf6;
+}
+
+.modal-availability-preview span {
+    color: #526b5c;
+    font-size: 12px;
+}
+
+.modal-availability-preview strong {
+    color: #217346;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+/* Modal status messages */
+
+.inventory-modal .message {
+    margin: 0 0 18px;
+    padding: 11px 13px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Modal footer buttons */
+
+.inventory-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #e1e9e3;
+}
+
+.inventory-modal-actions .btn {
+    min-width: 115px;
+}
+
+.inventory-modal .btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Prevent page scrolling while the modal is open */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* =========================================
+   STOCK STATUS BADGES
+========================================= */
+
+.stock-status-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.stock-status-in {
+    color: #217346;
+    background: #e8f7ed;
+    border: 1px solid #b8e4c7;
+}
+
+.stock-status-low {
+    color: #945b00;
+    background: #fff4d6;
+    border: 1px solid #f0d58a;
+}
+
+.stock-status-out {
+    color: #b42318;
+    background: #fff0ee;
+    border: 1px solid #f3c1bc;
+}
+
+/* =========================================
+   TABLET RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1100px) {
+    .dealer-layout .main-content {
+        padding: 24px;
+    }
+
+    .dealer-layout .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dealer-layout .sidebar {
+        width: 215px;
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 700px) {
+    .dealer-layout {
+        flex-direction: column;
+    }
+
+    .dealer-layout .sidebar {
+        width: auto;
+        padding: 18px;
+        border-right: none;
+        border-bottom: 1px solid var(--dealer-border);
+    }
+
+    .dealer-layout .brand {
+        padding-bottom: 18px;
+    }
+
+    .dealer-layout .sidebar-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+
+    .dealer-layout .nav-link {
+        flex-shrink: 0;
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .dealer-layout .sidebar-bottom {
+        display: none;
+    }
+
+    .dealer-layout .main-content {
+        padding: 20px 15px;
+    }
+
+    .dealer-layout .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .dealer-layout .profile-chip {
+        width: fit-content;
+    }
+
+    .dealer-layout .summary-grid {
+        gap: 12px;
+    }
+
+    .dealer-layout .summary-card {
+        padding: 16px;
+    }
+
+    .dealer-layout .content-card {
+        padding: 17px;
+    }
+
+    .dealer-layout .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dealer-layout .dashboard-footer {
+        flex-direction: column;
+    }
+}
+
+/* Small mobile screens */
+
+@media (max-width: 380px) {
+    .dealer-layout .summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   MODAL RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 520px) {
+    .inventory-modal {
+        padding: 12px;
+    }
+
+    .inventory-modal-panel {
+        max-height: calc(100vh - 24px);
+        padding: 21px 17px;
+        border-radius: 13px;
+    }
+
+    .inventory-modal-header h2 {
+        font-size: 20px;
+    }
+
+    .modal-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inventory-modal .modal-price-field {
+        grid-column: auto;
+    }
+
+    .modal-availability-preview {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .inventory-modal-actions .btn {
+        flex: 1;
+        min-width: 0;
+    }
+}
+/* =========================================
+   GREEN SECTION HEADINGS
+========================================= */
+
+.dealer-layout .section-heading h2,
+.dealer-layout .content-card > h2 {
+    color: #176b45;
+    font-weight: 700;
+}
+
+/* =========================================
+   NEAT, CONSISTENT BUTTON STRUCTURE
+========================================= */
+
+.dealer-layout button,
+.inventory-modal button {
+    font-family: inherit;
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.dealer-layout .btn,
+.inventory-modal .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 10px 18px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Add Inventory and other primary buttons */
+
+.dealer-layout .btn-primary,
+.inventory-modal .btn-primary {
+    background: #176b45;
+    color: #ffffff;
+    border: 1px solid #176b45;
+    box-shadow: 0 2px 5px rgba(23, 107, 69, 0.12);
+}
+
+.dealer-layout .btn-primary:hover,
+.inventory-modal .btn-primary:hover {
+    background: #105438;
+    border-color: #105438;
+    box-shadow: 0 4px 10px rgba(23, 107, 69, 0.18);
+}
+
+/* Refresh Stores and other secondary buttons */
+
+.dealer-layout .btn-secondary,
+.inventory-modal .btn-secondary {
+    background: #ffffff;
+    color: #176b45;
+    border: 1px solid #c9dfd0;
+}
+
+.dealer-layout .btn-secondary:hover,
+.inventory-modal .btn-secondary:hover {
+    background: #eaf5ee;
+    border-color: #176b45;
+}
+
+/* =========================================
+   REGISTER STORE MODAL BUTTONS
+========================================= */
+
+.inventory-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #e1e9e3;
+}
+
+/* Register Store */
+
+#save-store-button {
+    min-width: 140px;
+    min-height: 43px;
+    padding: 11px 20px;
+    background: #176b45;
+    color: #ffffff;
+    border: 1px solid #176b45;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(23, 107, 69, 0.12);
+}
+
+#save-store-button:hover {
+    background: #105438;
+    border-color: #105438;
+}
+
+#save-store-button:focus-visible {
+    outline: 3px solid rgba(23, 107, 69, 0.22);
+    outline-offset: 2px;
+}
+
+/* Cancel button in the Register Store modal */
+
+.inventory-modal-actions .btn-secondary {
+    min-width: 105px;
+    min-height: 43px;
+    padding: 11px 18px;
+    background: #ffffff;
+    color: #526b5c;
+    border: 1px solid #d5e2d8;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.inventory-modal-actions .btn-secondary:hover {
+    background: #f1f5f2;
+    color: #26352d;
+    border-color: #b8cbbd;
+}
+
+/* Disabled state while submitting */
+
+#save-store-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Align buttons neatly beside section headings */
+
+.dealer-layout .section-heading > div:last-child,
+.dealer-layout .section-heading .section-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Mobile modal buttons */
+
+@media (max-width: 520px) {
+    .inventory-modal-actions {
+        gap: 8px;
+    }
+
+    .inventory-modal-actions .btn-secondary,
+    #save-store-button {
+        flex: 1;
+        min-width: 0;
+    }
+}
+.dealer-logout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 103px;
+    height: 54px;
+    padding: 0 20px;
+    background: #ffffff;
+    color: #176b45;
+    border: 1px solid #d1e1d5;
+    border-radius: 13px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.dealer-logout-btn:hover {
+    background: #f5f8f5;
+    border-color: #176b45;
+}
+
+.dealer-logout-btn:focus-visible {
+    outline: 2px solid #176b45;
+    outline-offset: 3px;
+}

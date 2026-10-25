@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#173f35">
+
+    <title>Login | FarmWise AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/auth.css">
+
+    <script src="js/api.js" defer></script>
+    <script src="js/auth.js" defer></script>
+</head>
+
+<body class="farmwise-login">
+
+    <header class="topbar">
+        <a href="index.html" class="brand">
+            <span class="brand-icon">🌿</span>
+            <span>
+                <strong>FarmWise <em>AI</em></strong>
+                <small>Smarter Farming. Brighter Future.</small>
+            </span>
+        </a>
+
+        <div class="sdg">
+            <span>♧</span>
+            Sustainable Agriculture
+            <i></i>
+            SDG 2: Zero Hunger
+        </div>
+    </header>
+
+    <main class="page-layout">
+
+        <section class="hero">
+            <div class="hero-content">
+
+                <div class="hero-tag">
+                    <span class="live-dot"></span>
+                    AI POWERED <b>•</b> DATA DRIVEN <b>•</b> FARMER FOCUSED
+                </div>
+
+                <h1>
+                    Smarter Fertilizer<br>
+                    Management for a<br>
+                    Greener Tomorrow
+                </h1>
+
+                <p class="hero-description">
+                    Connect farmers and dealers with demand insights,
+                    stock availability and intelligent distribution
+                    for a more sustainable agricultural future.
+                </p>
+
+                <div class="features">
+
+                    <article class="feature">
+                        <span class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.7">
+                                <path d="M3 20h18M6 17v-5m5 5V5m5 12V9m5 8V3"/>
+                                <path d="m4 9 5-4 5 2 6-4"/>
+                            </svg>
+                        </span>
+
+                        <div>
+                            <h3>Forecast Demand</h3>
+                            <p>Predict fertilizer needs with<br> AI-powered insights.</p>
+                        </div>
+                    </article>
+
+                    <article class="feature">
+                        <span class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.7">
+                                <path d="m12 2 9 5-9 5-9-5 9-5Z"/>
+                                <path d="M3 7v10l9 5 9-5V7M12 12v10"/>
+                            </svg>
+                        </span>
+
+                        <div>
+                            <h3>Track Availability</h3>
+                            <p>View stock from<br> nearby dealers.</p>
+                        </div>
+                    </article>
+
+                    <article class="feature">
+                        <span class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.7">
+                                <path d="M20 4C12 4 6 8 6 15a5 5 0 0 0 5 5c7 0 9-8 9-16Z"/>
+                                <path d="M3 21c3-6 7-9 13-13"/>
+                            </svg>
+                        </span>
+
+                        <div>
+                            <h3>Enable Sustainability</h3>
+                            <p>Reduce waste and support<br> healthier harvests.</p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <div class="hero-footer">
+                <span class="footer-leaf">🌱</span>
+                <div>
+                    <p>Healthy soil<br>Healthy future</p>
+                    <span class="footer-line"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-side">
+            <div class="login-card">
+
+                <div class="card-brand">
+                    <span class="brand-icon">🌿</span>
+                    <strong>FarmWise <em>AI</em></strong>
+                </div>
+
+                <div class="welcome">
+                    <h2>Welcome Back!</h2>
+                    <p>Sign in to continue to your account.</p>
+                </div>
+
+                <div
+                    id="auth-message"
+                    class="auth-message"
+                    role="alert"
+                    aria-live="polite"
+                    hidden
+                ></div>
+
+                <form id="login-form" novalidate>
+
+                    <label class="role-title">I am a</label>
+
+                    <div class="role-grid">
+
+                        <label class="role-card active">
+                            <input
+                                type="radio"
+                                name="role"
+                                value="farmer"
+                                checked
+                                required
+                            >
+
+                            <svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.7">
+                                <path d="M12 21v-9M12 12C5 12 5 5 5 5s7 0 7 7ZM12 16c0-7 7-7 7-7s0 7-7 7Z"/>
+                            </svg>
+
+                            <span>Farmer</span>
+                        </label>
+
+                        <label class="role-card">
+                            <input
+                                type="radio"
+                                name="role"
+                                value="dealer"
+                                required
+                            >
+
+                            <svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.7">
+                                <path d="M3 10h18l-2-6H5l-2 6Z"/>
+                                <path d="M5 10v10h14V10M9 20v-6h6v6"/>
+                                <path d="M3 10c0 3 4 3 4 0 0 3 4 3 4 0 0 3 4 3 4 0 0 3 4 3 4 0"/>
+                            </svg>
+
+                            <span>Dealer</span>
+                        </label>
+
+                        <label class="role-card">
+                            <input
+                                type="radio"
+                                name="role"
+                                value="admin"
+                                required
+                            >
+
+                            <svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.7">
+                                <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
+                                <path d="m9 12 2 2 4-4"/>
+                            </svg>
+
+                            <span>Admin</span>
+                        </label>
+
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email Address</label>
+
+                        <div class="input-box">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.7">
+                                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                                <path d="m3 7 9 6 9-6"/>
+                            </svg>
+
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Password</label>
+
+                        <div class="input-box">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.7">
+                                <rect x="5" y="10" width="14" height="11" rx="2"/>
+                                <path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/>
+                            </svg>
+
+                            <input
+                                id="password"
+                                name="password"
+                                type="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="toggle-password"
+                                aria-label="Show password"
+                            >
+                                <svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.7">
+                                    <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="options">
+
+                        <a href="#" id="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                        id="login-button"
+                    >
+                        <span id="login-button-text">Login</span>
+                        <span class="arrow">→</span>
+                    </button>
+
+                </form>
+
+                <div class="divider">
+                    
+                </div>
+
+
+                <p class="register">
+                    Don't have an account?
+                    <a href="register.html">Register here</a>
+                </p>
+
+                <div class="decor-leaves" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

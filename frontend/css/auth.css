@@ -1,0 +1,1679 @@
+
+:root {
+    --green: #124f40;
+    --green-dark: #0d4034;
+    --green-mid: #26785a;
+    --green-light: #e0eee0;
+    --cream: #fff9ec;
+    --text: #17483d;
+    --muted: #55716b;
+    --border: #dce6e3;
+    --white: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body.farmwise-login,
+body.auth-page {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    background: #edf3f0;
+    font-family: "DM Sans", sans-serif;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================
+   LOGIN HEADER
+========================= */
+
+.topbar {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+    padding: 12px 5%;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon,
+.brand-mark {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    color: #fff;
+    background: var(--green);
+    font-size: 22px;
+}
+
+.brand strong,
+.card-brand strong,
+.mobile-brand strong {
+    color: var(--green-dark);
+    font-family: "Manrope", sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -.7px;
+}
+
+.brand em,
+.card-brand em,
+.mobile-brand strong {
+    color: #4b9b76;
+    font-style: normal;
+}
+
+.brand small {
+    display: block;
+    margin-top: 3px;
+    color: #42645b;
+    font-size: 11px;
+}
+
+.sdg {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #315b53;
+    font-size: 11px;
+}
+
+.sdg > span {
+    color: var(--green);
+    font-size: 19px;
+}
+
+.sdg i {
+    width: 1px;
+    height: 15px;
+    background: #9eb7ad;
+}
+
+/* =========================
+   SHARED TWO-COLUMN LAYOUT
+========================= */
+
+.page-layout,
+.auth-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* =========================
+   SHARED FARM IMAGE PANEL
+========================= */
+
+.hero,
+.auth-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 88px 5% 105px;
+    overflow: hidden;
+    background-color: #e9e9d7;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(255, 250, 237, .94) 0%,
+            rgba(255, 250, 237, .82) 46%,
+            rgba(255, 250, 237, .12) 100%
+        ),
+        url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=90");
+    background-position: center;
+    background-size: cover;
+}
+
+.hero-content,
+.visual-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+.auth-visual {
+    display: block;
+    padding-top: 76px;
+}
+
+.auth-visual > .brand {
+    position: absolute;
+    z-index: 3;
+    top: 22px;
+    left: 5%;
+    font-family: "Manrope", sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.auth-visual > .brand > span:last-child,
+.mobile-brand > span:last-child {
+    color: var(--green-dark);
+}
+
+.auth-visual .brand strong,
+.mobile-brand strong {
+    color: #4b9b76;
+}
+
+/* =========================
+   SHARED HERO LABEL
+========================= */
+
+.hero-tag,
+.visual-content .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 7px 11px;
+    border-radius: 30px;
+    color: #39815f;
+    background: rgba(225, 238, 225, .92);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .4px;
+}
+
+.live-dot,
+.status-dot {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #55a477;
+}
+
+.hero-tag b {
+    color: #72a385;
+}
+
+/* =========================
+   SHARED HERO HEADING
+========================= */
+
+.hero h1,
+.visual-content h1 {
+    margin: 15px 0 10px;
+    color: #12483d;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(27px, 2.5vw, 37px);
+    font-weight: 800;
+    line-height: 1.14;
+    letter-spacing: -1.2px;
+}
+
+.hero-description,
+.visual-content > p {
+    max-width: 410px;
+    margin: 0;
+    color: #345d54;
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+/* =========================
+   LOGIN FEATURES
+========================= */
+
+.features,
+.visual-features {
+    display: grid;
+    gap: 13px;
+    margin-top: 20px;
+}
+
+.feature,
+.visual-feature {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+}
+
+.feature-icon,
+.visual-feature .feature-icon {
+    display: grid;
+    flex: 0 0 44px;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    color: var(--green);
+    background: rgba(222, 238, 221, .96);
+}
+
+.feature-icon svg {
+    width: 23px;
+    height: 23px;
+}
+
+.feature h3,
+.visual-feature strong {
+    display: block;
+    margin: 0 0 3px;
+    color: #173f36;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.feature p,
+.visual-feature > div > span {
+    display: block;
+    margin: 0;
+    color: #42645c;
+    font-size: 10px;
+    line-height: 1.45;
+}
+
+.visual-feature .feature-icon {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.visual-feature > div {
+    display: grid;
+    gap: 3px;
+    min-width: 0;
+}
+
+/* LOGIN FOOTER */
+
+.hero-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 65%;
+    height: 115px;
+    padding: 35px 0 0 9%;
+    color: #fff;
+    background: linear-gradient(120deg, #063c32, #145444);
+    border-top-right-radius: 100% 100%;
+}
+
+.footer-leaf {
+    font-size: 20px;
+}
+
+.hero-footer p {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.footer-line {
+    display: block;
+    width: 85px;
+    height: 2px;
+    margin: 6px 0 0 5px;
+    transform: rotate(-9deg);
+    background: #c6e1cb;
+}
+
+/* REGISTER FOOTER */
+
+.visual-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 7%;
+    margin: 0;
+    color: #42645b;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* =========================
+   SHARED RIGHT PANEL
+========================= */
+
+.form-side,
+.auth-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 50px 5% 20px;
+    background:
+        radial-gradient(ellipse at 100% 100%, #dcebe2, transparent 40%),
+        #eaf1ee;
+}
+
+/* =========================
+   SHARED CARD STYLING
+========================= */
+
+.login-card,
+.auth-card {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    min-width: 0;
+    padding: 23px 30px;
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 19px;
+    background: rgba(255, 255, 255, .97);
+    box-shadow: 0 15px 45px rgba(35, 75, 58, .10);
+}
+
+.login-card {
+    overflow: hidden;
+}
+
+.auth-card {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.card-brand,
+.mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-brand {
+    margin-bottom: 11px;
+}
+
+.card-brand .brand-icon,
+.mobile-brand .brand-mark {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+}
+
+.card-brand strong {
+    font-size: 21px;
+}
+
+.mobile-brand {
+    display: none;
+}
+
+/* =========================
+   LOGIN AND REGISTER HEADINGS
+========================= */
+
+.welcome {
+    margin-bottom: 14px;
+}
+
+.welcome h2,
+.auth-heading h2 {
+    margin: 0 0 5px;
+    color: #12483d;
+    font-family: "Manrope", sans-serif;
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -.8px;
+}
+
+.welcome p,
+.auth-heading p {
+    margin: 0;
+    color: #55716b;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.auth-heading {
+    margin-bottom: 14px;
+}
+
+.auth-heading > .eyebrow {
+    color: #39815f;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .7px;
+}
+
+/* =========================
+   ROLE SELECTOR — LOGIN
+========================= */
+
+.role-title,
+.field > label,
+.form-group > label {
+    display: block;
+    margin-bottom: 6px;
+    color: #183f37;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.role-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+    margin-bottom: 14px;
+}
+
+.role-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-width: 0;
+    min-height: 54px;
+    padding: 6px 4px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    color: #365d55;
+    background: #fff;
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.role-card input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.role-card svg {
+    width: 20px;
+    height: 20px;
+}
+
+.role-card span {
+    font-size: 10px;
+}
+
+.role-card.active,
+.role-card:has(input:checked) {
+    border-color: var(--green);
+    color: #fff;
+    background: linear-gradient(120deg, #17624d, #104c3d);
+}
+
+.role-card:focus-within {
+    outline: 2px solid #b8d8c3;
+    outline-offset: 2px;
+}
+
+/* =========================
+   REGISTER ROLE SELECTOR
+   Uses the same card appearance
+========================= */
+
+.register-role-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    margin-bottom: 2px;
+}
+
+.register-role-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-width: 0;
+    min-height: 48px;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: #365d55;
+    background: #fff;
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.register-role-option input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.register-role-option svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.register-role-option span {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.register-role-option:has(input:checked) {
+    border-color: var(--green);
+    color: #fff;
+    background: linear-gradient(120deg, #17624d, #104c3d);
+}
+
+.register-role-option:focus-within {
+    outline: 2px solid #b8d8c3;
+    outline-offset: 2px;
+}
+
+/* =========================
+   LOGIN FORM
+========================= */
+
+#login-form {
+    display: grid;
+    gap: 11px;
+}
+
+.field {
+    min-width: 0;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 43px;
+    padding: 0 11px;
+    border: 1px solid #d8e3e2;
+    border-radius: 10px;
+    background: #fcfdfc;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.input-box:focus-within {
+    border-color: #6b9f83;
+    box-shadow: 0 0 0 3px rgba(107, 159, 131, .12);
+}
+
+.input-box > svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: #426d64;
+}
+
+.input-box input {
+    width: 100%;
+    min-width: 0;
+    height: 40px;
+    padding: 0;
+    outline: none;
+    border: none;
+    color: #173f36;
+    background: transparent;
+    font-size: 11px;
+}
+
+.input-box input::placeholder {
+    color: #91a5a7;
+}
+
+.password-toggle {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    padding: 5px;
+    border: none;
+    color: #176d4d;
+    background: transparent;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* =========================
+   REGISTER FORM FIELDS
+========================= */
+
+#register-form {
+    display: grid;
+    gap: 10px;
+}
+
+.form-group {
+    display: grid;
+    gap: 5px;
+    min-width: 0;
+}
+
+.form-group > label {
+    margin-bottom: 0;
+}
+
+.form-group > input,
+.form-group > select {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 39px;
+    padding: 0 11px;
+    border: 1px solid #d8e3e2;
+    border-radius: 10px;
+    outline: none;
+    color: #173f36;
+    background: #fcfdfc;
+    font-size: 11px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.form-group > input::placeholder {
+    color: #91a5a7;
+}
+
+.form-group > input:focus,
+.form-group > select:focus,
+.password-wrapper:focus-within {
+    border-color: #6b9f83;
+    box-shadow: 0 0 0 3px rgba(107, 159, 131, .12);
+}
+
+.form-group > select {
+    cursor: pointer;
+}
+
+.password-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    height: 39px;
+    padding: 0 8px 0 11px;
+    border: 1px solid #d8e3e2;
+    border-radius: 10px;
+    background: #fcfdfc;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.password-wrapper input {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    height: 35px;
+    padding: 0;
+    border: none;
+    outline: none;
+    color: #173f36;
+    background: transparent;
+    font-size: 11px;
+}
+
+.password-wrapper input:focus {
+    box-shadow: none;
+}
+
+.password-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+.field-hint {
+    color: #718984;
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+/* =========================
+   LOGIN OPTIONS
+========================= */
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.remember {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #47655e;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.remember input {
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    accent-color: var(--green);
+}
+
+.options > a {
+    color: #16704e;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* =========================
+   SHARED SUBMIT BUTTONS
+========================= */
+
+.submit-button,
+.auth-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    min-height: 43px;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    background: linear-gradient(105deg, #155642, #0d4a3b);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    transition: filter .2s ease, transform .2s ease;
+}
+
+.auth-submit {
+    margin-top: 2px;
+}
+
+.submit-button:hover,
+.auth-submit:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+.submit-button:disabled,
+.auth-submit:disabled {
+    opacity: .7;
+    cursor: wait;
+    transform: none;
+}
+
+.arrow,
+.auth-submit > span:last-child {
+    font-size: 19px;
+    font-weight: 400;
+}
+
+/* =========================
+   LOGIN GOOGLE BUTTON
+========================= */
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 12px 0;
+    color: #718984;
+}
+
+.divider span {
+    flex: 1;
+    height: 1px;
+    background: #dce6e2;
+}
+
+.divider small {
+    font-size: 10px;
+}
+
+.google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 38px;
+    border: 1px solid #dce6e5;
+    border-radius: 10px;
+    color: #294f48;
+    background: #f2f6f6;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.google-button:hover {
+    background: #eaf1ee;
+}
+
+.google-letter {
+    color: #4285f4;
+    font-family: Arial, sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+/* =========================
+   AUTH LINKS AND TERMS
+========================= */
+
+.register,
+.auth-switch {
+    margin: 15px 0 0;
+    color: #58716d;
+    text-align: center;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.register a,
+.auth-switch a {
+    margin-left: 4px;
+    color: #176d4d;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.auth-terms {
+    margin: 8px 0 0;
+    color: #82948f;
+    text-align: center;
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+/* =========================
+   AUTHENTICATION MESSAGES
+========================= */
+
+.auth-message {
+    margin: 0 0 10px;
+    padding: 9px 11px;
+    border: 1px solid #f0c7c2;
+    border-radius: 9px;
+    color: #a72c25;
+    background: #fff4f2;
+    font-size: 11px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.auth-message.success {
+    border-color: #b8ddc6;
+    color: #176b45;
+    background: #effaf3;
+}
+
+/* =========================
+   DECORATIVE LEAVES
+========================= */
+
+.decor-leaves {
+    position: absolute;
+    right: 12px;
+    bottom: -21px;
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    opacity: .55;
+    transform: scale(.75) rotate(-15deg);
+    transform-origin: bottom right;
+    pointer-events: none;
+}
+
+.decor-leaves span {
+    display: block;
+    width: 23px;
+    height: 43px;
+    border-radius: 100% 0 100% 0;
+    background: #78ad91;
+}
+
+.decor-leaves span:nth-child(2) {
+    height: 67px;
+    background: #3b8468;
+}
+
+.decor-leaves span:nth-child(3) {
+    height: 35px;
+    background: #a2c9ad;
+}
+
+/* =========================
+   DESKTOP VIEWPORT FIT
+========================= */
+
+@media (min-width: 761px) {
+    html,
+    body.farmwise-login,
+    body.auth-page {
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .page-layout,
+    .auth-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .hero,
+    .auth-visual,
+    .form-side,
+    .auth-panel {
+        height: 100vh;
+        height: 100dvh;
+        min-height: 0;
+    }
+
+    .login-card,
+    .auth-card {
+        flex-shrink: 1;
+        max-height: calc(100dvh - 28px);
+    }
+
+    .auth-card {
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #c4d9cc transparent;
+    }
+}
+
+/* =========================
+   SHORT LAPTOP SCREENS
+========================= */
+
+@media (min-width: 761px) and (max-height: 760px) {
+    .topbar {
+        height: 58px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+
+    .brand-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 19px;
+    }
+
+    .brand strong {
+        font-size: 19px;
+    }
+
+    .brand small {
+        font-size: 9px;
+    }
+
+    .hero {
+        padding-top: 61px;
+        padding-bottom: 80px;
+    }
+
+    .hero h1 {
+        margin: 9px 0 7px;
+        font-size: clamp(24px, 2.3vw, 31px);
+    }
+
+    .hero-description {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .features {
+        gap: 8px;
+        margin-top: 12px;
+    }
+
+    .feature-icon {
+        flex-basis: 34px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .feature-icon svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .feature h3 {
+        font-size: 10px;
+    }
+
+    .feature p {
+        font-size: 9px;
+    }
+
+    .hero-footer {
+        height: 75px;
+        padding-top: 24px;
+    }
+
+    .form-side {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .login-card {
+        padding: 12px 24px;
+    }
+
+    .card-brand {
+        margin-bottom: 7px;
+    }
+
+    .welcome {
+        margin-bottom: 8px;
+    }
+
+    .welcome h2 {
+        font-size: 23px;
+    }
+
+    #login-form {
+        gap: 7px;
+    }
+
+    .input-box {
+        min-height: 36px;
+    }
+
+    .input-box input {
+        height: 33px;
+    }
+
+    .submit-button {
+        min-height: 37px;
+    }
+
+    .divider {
+        margin: 7px 0;
+    }
+
+    .google-button {
+        min-height: 32px;
+    }
+
+    .register {
+        margin-top: 8px;
+    }
+
+    .auth-visual {
+        padding-top: 58px;
+        padding-bottom: 62px;
+    }
+
+    .auth-visual > .brand {
+        top: 12px;
+    }
+
+    .visual-content h1 {
+        margin: 10px 0 7px;
+        font-size: clamp(24px, 2.2vw, 32px);
+    }
+
+    .visual-content > p {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .visual-features {
+        gap: 8px;
+        margin-top: 13px;
+    }
+
+    .visual-feature .feature-icon {
+        flex-basis: 35px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .visual-feature strong {
+        font-size: 10px;
+    }
+
+    .visual-feature > div > span {
+        font-size: 9px;
+    }
+
+    .visual-footer {
+        bottom: 10px;
+        font-size: 9px;
+    }
+
+    .auth-panel {
+        padding: 10px 4%;
+    }
+
+    .auth-card {
+        padding: 13px 25px;
+    }
+
+    .auth-heading {
+        margin-bottom: 9px;
+    }
+
+    .auth-heading h2 {
+        font-size: 22px;
+    }
+
+    .auth-heading p {
+        font-size: 10px;
+    }
+
+    #register-form {
+        gap: 7px;
+    }
+
+    .form-group {
+        gap: 3px;
+    }
+
+    .form-group > input,
+    .form-group > select,
+    .password-wrapper {
+        height: 33px;
+    }
+
+    .password-wrapper input {
+        height: 29px;
+    }
+
+    .field-hint {
+        font-size: 8px;
+    }
+
+    .auth-submit {
+        min-height: 35px;
+    }
+
+    .auth-switch {
+        margin-top: 8px;
+    }
+
+    .auth-terms {
+        margin-top: 4px;
+    }
+}
+
+/* =========================
+   MOBILE AND TABLET
+========================= */
+
+@media (max-width: 760px) {
+    html,
+    body.farmwise-login,
+    body.auth-page {
+        height: auto;
+        min-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .topbar {
+        position: relative;
+        height: auto;
+        padding: 16px 20px;
+        background: #edf3ef;
+    }
+
+    .brand {
+        gap: 10px;
+    }
+
+    .brand strong {
+        font-size: 20px;
+    }
+
+    .brand small {
+        font-size: 10px;
+    }
+
+    .sdg {
+        display: none;
+    }
+
+    .page-layout,
+    .auth-layout {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 34px 23px 40px;
+        background-position: center;
+    }
+
+    .hero h1,
+    .visual-content h1 {
+        font-size: clamp(29px, 7vw, 38px);
+    }
+
+    .hero-description,
+    .visual-content > p {
+        font-size: 12px;
+    }
+
+    .features,
+    .visual-features {
+        gap: 14px;
+        margin-top: 20px;
+    }
+
+    .hero-footer {
+        display: none;
+    }
+
+    .form-side,
+    .auth-panel {
+        min-height: 0;
+        height: auto;
+        padding: 22px 15px 32px;
+        overflow: visible;
+    }
+
+    .login-card,
+    .auth-card {
+        width: 100%;
+        max-width: 500px;
+        max-height: none;
+        margin: 0 auto;
+        padding: 26px 22px;
+        overflow: visible;
+        border-radius: 18px;
+    }
+
+    .welcome h2,
+    .auth-heading h2 {
+        font-size: 26px;
+    }
+
+    .welcome p,
+    .auth-heading p {
+        font-size: 12px;
+    }
+
+    .role-title,
+    .field > label,
+    .form-group > label {
+        font-size: 12px;
+    }
+
+    .role-grid {
+        gap: 8px;
+        margin-bottom: 17px;
+    }
+
+    .role-card {
+        min-height: 55px;
+    }
+
+    #login-form {
+        gap: 13px;
+    }
+
+    .input-box {
+        min-height: 46px;
+    }
+
+    .input-box input {
+        height: 43px;
+        font-size: 12px;
+    }
+
+    .options > a,
+    .remember {
+        font-size: 11px;
+    }
+
+    .submit-button,
+    .auth-submit {
+        min-height: 45px;
+        font-size: 13px;
+    }
+
+    .google-button {
+        min-height: 41px;
+        font-size: 11px;
+    }
+
+    .register,
+    .auth-switch {
+        margin-top: 17px;
+        font-size: 11px;
+    }
+
+    /* Registration page */
+
+    .auth-visual {
+        min-height: auto;
+        padding: 82px 23px 30px;
+        background-position: center;
+    }
+
+    .auth-visual > .brand {
+        top: 18px;
+        left: 23px;
+    }
+
+    .visual-footer {
+        position: static;
+        margin-top: 22px;
+        font-size: 10px;
+    }
+
+    .mobile-brand {
+        display: flex;
+        margin-bottom: 14px;
+    }
+
+    .mobile-brand > span:last-child {
+        font-family: "Manrope", sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    .auth-heading {
+        margin-bottom: 15px;
+    }
+
+    #register-form {
+        gap: 12px;
+    }
+
+    .form-group {
+        gap: 5px;
+    }
+
+    .form-group > input,
+    .form-group > select,
+    .password-wrapper {
+        height: 45px;
+        font-size: 12px;
+    }
+
+    .password-wrapper input {
+        height: 41px;
+        font-size: 12px;
+    }
+
+    .field-hint {
+        font-size: 10px;
+    }
+
+    .register-role-grid {
+        gap: 8px;
+    }
+
+    .register-role-option {
+        min-height: 48px;
+        padding: 8px;
+    }
+
+    .register-role-option span {
+        font-size: 11px;
+    }
+
+    .auth-terms {
+        font-size: 10px;
+    }
+}
+
+/* =========================
+   VERY NARROW MOBILE
+========================= */
+
+@media (max-width: 380px) {
+    .topbar {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .hero {
+        padding-right: 17px;
+        padding-left: 17px;
+    }
+
+    .hero h1,
+    .visual-content h1 {
+        font-size: 29px;
+        letter-spacing: -1px;
+    }
+
+    .hero-tag {
+        gap: 5px;
+        font-size: 8px;
+    }
+
+    .login-card,
+    .auth-card {
+        padding: 22px 16px;
+    }
+
+    .role-grid {
+        gap: 6px;
+    }
+
+    .options {
+        gap: 6px;
+    }
+
+    .auth-visual {
+        padding-right: 17px;
+        padding-left: 17px;
+    }
+
+    .auth-visual > .brand {
+        left: 17px;
+    }
+
+    .auth-panel {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .register-role-grid {
+        gap: 6px;
+    }
+
+    .register-role-option {
+        gap: 6px;
+        padding: 7px 5px;
+    }
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+}
+
+/* ==========================================
+   FARMWISE AI — REGISTRATION ROLE CARDS
+   Append this section to the end of auth.css
+========================================== */
+
+.register-role-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.register-role-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 100px;
+    padding: 12px 6px;
+    border: 1.5px solid #dce5df;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #52635a;
+    text-align: center;
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Hide the native radio while retaining keyboard accessibility */
+.register-role-card input[type="radio"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Role card content */
+.register-role-card .role-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+}
+
+.register-role-card .role-card-icon {
+    display: block;
+    font-size: 23px;
+    line-height: 1.2;
+}
+
+.register-role-card .role-card-title {
+    display: block;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.register-role-card .role-card-description {
+    display: block;
+    font-family: "DM Sans", sans-serif;
+    font-size: 10px;
+    line-height: 1.4;
+    color: #718078;
+}
+
+/* Hover effect */
+.register-role-card:hover {
+    border-color: #7aa58c;
+    background-color: #f7fbf8;
+}
+
+/* Selected role — Farmer is selected by default in HTML */
+.register-role-card:has(input[type="radio"]:checked) {
+    border-color: #248451;
+    background-color: #edf8f0;
+    color: #17663b;
+    box-shadow: 0 0 0 2px rgb(36 132 81 / 9%);
+}
+
+.register-role-card:has(input[type="radio"]:checked)
+.role-card-description {
+    color: #39744f;
+}
+
+/* Keyboard focus */
+.register-role-card:has(input[type="radio"]:focus-visible) {
+    outline: 2px solid #248451;
+    outline-offset: 3px;
+}
+
+/* Slightly tighter registration form spacing */
+.auth-card .register-role-grid {
+    margin-bottom: 2px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 480px) {
+    .register-role-grid {
+        gap: 7px;
+    }
+
+    .register-role-card {
+        min-height: 88px;
+        padding: 9px 4px;
+    }
+
+    .register-role-card .role-card-icon {
+        font-size: 21px;
+    }
+
+    .register-role-card .role-card-title {
+        font-size: 11px;
+    }
+
+    .register-role-card .role-card-description {
+        font-size: 9px;
+    }
+}
+
+/* Very narrow screens */
+@media (max-width: 340px) {
+    .register-role-grid {
+        gap: 5px;
+    }
+
+    .register-role-card {
+        padding: 8px 2px;
+    }
+
+    .register-role-card .role-card-title {
+        font-size: 10px;
+    }
+}

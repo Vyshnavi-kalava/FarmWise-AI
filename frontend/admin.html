@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Smart Urea Management</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/admin.js" defer></script>
+</head>
+
+<body>
+    <div class="layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <h2>Farm Supply Management</h2>
+                <p>Smart Urea Management System</p>
+            </div>
+
+            <p class="nav-label">Administration</p>
+
+            <nav aria-label="Dashboard navigation">
+                <button class="nav-link active" type="button" data-section="overview-section">
+                    Overview
+                </button>
+
+                <button class="nav-link" type="button" data-section="users-section">
+                    Farmers Overview
+                </button>
+                <button class="nav-link" type="button" data-section="dealers-section">
+                    <span class="nav-icon">🏪</span>
+                    <span>Dealers Overview</span>
+                </button>
+
+                <button class="nav-link" type="button" data-section="products-section">
+                    Product Summary
+                </button>
+
+                <button class="nav-link" type="button" data-section="inventory-section">
+                    Inventory Monitoring
+                </button>
+            </nav>
+
+            <button id="logout-btn" class="logout-btn" type="button">
+                Logout
+            </button>
+        </aside>
+
+        <!-- Main Dashboard -->
+        <main class="main-content">
+
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div>
+                    <h1>Admin Dashboard</h1>
+                    <p class="subtitle">
+                        Monitor farmers, dealers, fertilizer availability
+                        and inventory distribution.
+                    </p>
+                </div>
+
+                <div class="admin-chip">
+                    <span class="admin-icon" aria-hidden="true">●</span>
+                    <span id="admin-name">Administrator</span>
+                </div>
+            </header>
+
+            <!-- Notification Area -->
+            <div id="notice" class="notice" role="status" aria-live="polite" hidden>
+            </div>
+
+            <!-- =========================================
+                 OVERVIEW SECTION
+            ========================================== -->
+            <section class="dashboard-section" id="overview-section">
+
+                <div class="section-header">
+                    <div>
+                        <h2>System Overview</h2>
+                        <p class="subtitle">
+                            Summary of the system's recorded information.
+                        </p>
+                    </div>
+
+                    <button id="refresh-btn" class="primary-btn" type="button">
+                        Refresh Data
+                    </button>
+                </div>
+
+                <!-- Overview Metrics -->
+                <div class="metrics-grid">
+
+                    <article class="metric-card">
+                        <p class="metric-label">Registered Farmers</p>
+                        <h3 id="farmers-count">—</h3>
+                        <p class="metric-description">Farmer profiles</p>
+                    </article>
+
+                    <article class="metric-card">
+                        <p class="metric-label">Registered Dealers</p>
+                        <h3 id="dealers-count">—</h3>
+                        <p class="metric-description">Dealer profiles</p>
+                    </article>
+
+                    <article class="metric-card">
+                        <p class="metric-label">Pending Verification</p>
+                        <h3 id="pending-count">—</h3>
+                        <p class="metric-description">
+                            Dealers awaiting verification
+                        </p>
+                    </article>
+
+                    <article class="metric-card">
+                        <p class="metric-label">Active Stores</p>
+                        <h3 id="stores-count">—</h3>
+                        <p class="metric-description">
+                            Stores linked to active accounts
+                        </p>
+                    </article>
+
+                    <article class="metric-card">
+                        <p class="metric-label">Available Stock</p>
+                        <h3 id="available-stock">—</h3>
+                        <p class="metric-description">
+                            Available quantity after reservations (kg)
+                        </p>
+                    </article>
+
+                    <article class="metric-card">
+                        <p class="metric-label">Total Recorded Stock</p>
+                        <h3 id="total-stock">—</h3>
+                        <p class="metric-description">
+                            Recorded quantity before reservations (kg)
+                        </p>
+                    </article>
+
+                    <article class="metric-card">
+                        <p class="metric-label">Reserved Stock</p>
+                        <h3 id="reserved-stock">—</h3>
+                        <p class="metric-description">
+                            Quantity reserved (kg)
+                        </p>
+                    </article>
+
+                    <article class="metric-card">
+                        <p class="metric-label">Inventory Records</p>
+                        <h3 id="inventory-count">—</h3>
+                        <p class="metric-description">
+                            Recorded inventory entries
+                        </p>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- =========================================
+                 FARMERS OVERVIEW SECTION
+            ========================================== -->
+            <section class="dashboard-section" id="users-section" hidden>
+
+                <div class="section-header">
+                    <div>
+                        <h2>Farmers Overview</h2>
+                        <p class="subtitle">
+                            View registered farmers and their account information.
+                        </p>
+                    </div>
+
+                    <button id="refresh-farmers-btn" class="primary-btn" type="button">
+                        Refresh Farmers
+                    </button>
+                </div>
+
+                <!-- Farmer Statistics -->
+                <div class="metrics-grid">
+
+                    <article class="metric-card">
+                        <p class="metric-label">Total Farmers</p>
+                        <h3 id="users-farmers-count">—</h3>
+                        <p class="metric-description">
+                            Registered farmer accounts
+                        </p>
+                    </article>
+
+                    <article class="metric-card">
+                        <p class="metric-label">Active Farmers</p>
+                        <h3 id="active-farmers-count">—</h3>
+                        <p class="metric-description">
+                            Farmers with active accounts
+                        </p>
+                    </article>
+
+                </div>
+
+                <!-- Registered Farmer Details -->
+                <div class="panel">
+
+                    <div class="section-header">
+                        <div>
+                            <h2>Registered Farmer Details</h2>
+                            <p class="subtitle">
+                                Search, filter and sort registered farmer accounts.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Search and Filters -->
+                    <div class="farmer-controls">
+
+                        <div class="farmer-search">
+                            <label for="farmer-search">
+                                Search farmers
+                            </label>
+
+                            <input type="search" id="farmer-search" placeholder="Search by name or email..."
+                                aria-label="Search farmers by name or email">
+                        </div>
+
+                        <div class="farmer-filter">
+                            <label for="district-filter">
+                                District
+                            </label>
+
+                            <select id="district-filter" aria-label="Filter farmers by district">
+                                <option value="">All districts</option>
+                            </select>
+                        </div>
+
+                        <div class="farmer-filter">
+                            <label for="language-filter">
+                                Preferred language
+                            </label>
+
+                            <select id="language-filter" aria-label="Filter farmers by preferred language">
+                                <option value="">All languages</option>
+                            </select>
+                        </div>
+
+                        <div class="farmer-filter">
+                            <label for="status-filter">
+                                Account status
+                            </label>
+
+                            <select id="status-filter" aria-label="Filter farmers by account status">
+                                <option value="">All statuses</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+
+                        <div class="farmer-filter">
+                            <label for="profile-filter">
+                                Profile completion
+                            </label>
+
+                            <select id="profile-filter" aria-label="Filter farmers by profile completion">
+                                <option value="">All profiles</option>
+                                <option value="completed">Complete</option>
+                                <option value="incomplete">Incomplete</option>
+                            </select>
+                        </div>
+
+                        <div class="farmer-filter">
+                            <label for="registration-sort">
+                                Registration date
+                            </label>
+
+                            <select id="registration-sort" aria-label="Sort farmers by registration date">
+                                <option value="newest">Newest first</option>
+                                <option value="oldest">Oldest first</option>
+                            </select>
+                        </div>
+
+                        <button id="reset-farmer-filters" class="secondary-btn" type="button">
+                            Reset Filters
+                        </button>
+
+                    </div>
+
+                    <!-- Filter Results Count -->
+                    <p id="farmers-results-count" class="subtitle" aria-live="polite">
+                        Loading farmer records...
+                    </p>
+
+                    <!-- Farmer Table -->
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Farmer Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Village</th>
+                                    <th scope="col">District</th>
+                                    <th scope="col">Preferred Language</th>
+                                    <th scope="col">Registration Date</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="farmers-body">
+                                <tr>
+                                    <td colspan="8" class="empty-state">
+                                        Farmer details will appear here.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- =========================================
+     DEALERS OVERVIEW SECTION
+========================================== -->
+            <section class="dashboard-section" id="dealers-section" hidden>
+
+                <div class="section-header">
+                    <div>
+                        <h2>Dealers Overview</h2>
+                        <p class="subtitle">
+                            View registered dealers, business details, account status
+                            and verification information.
+                        </p>
+                    </div>
+
+                    <button id="refresh-dealers-btn" class="primary-btn" type="button">
+                        Refresh Dealers
+                    </button>
+                </div>
+
+                <!-- Dealer Statistics -->
+                <div class="metrics-grid">
+
+                    <article class="metric-card">
+                        <p class="metric-label">Total Dealers</p>
+                        <h3 id="dealers-total-count">—</h3>
+                        <p class="metric-description">Registered dealer accounts</p>
+                    </article>
+
+                    <article class="metric-card">
+                        <p class="metric-label">Active Dealers</p>
+                        <h3 id="active-dealers-count">—</h3>
+                        <p class="metric-description">Dealers with active accounts</p>
+                    </article>
+
+                    <article class="metric-card">
+                        <p class="metric-label">Verified Dealers</p>
+                        <h3 id="verified-dealers-count">—</h3>
+                        <p class="metric-description">Dealers approved by admin</p>
+                    </article>
+
+                    <article class="metric-card">
+                        <p class="metric-label">Pending Verification</p>
+                        <h3 id="pending-dealers-count">—</h3>
+                        <p class="metric-description">Dealers awaiting approval</p>
+                    </article>
+
+                </div>
+
+                <!-- Registered Dealer Details -->
+                <div class="panel">
+
+                    <div class="section-header">
+                        <div>
+                            <h2>Registered Dealer Details</h2>
+                            <p class="subtitle">
+                                Search, filter and review dealer business information.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Search and Filters -->
+                    <div class="farmer-controls">
+
+                        <div class="farmer-search">
+                            <label for="dealer-search">Search dealers</label>
+                            <input type="search" id="dealer-search"
+                                placeholder="Search business name, email or license..." aria-label="Search dealers">
+                        </div>
+
+                        <div class="farmer-filter">
+                            <label for="dealer-district-filter">District</label>
+                            <select id="dealer-district-filter">
+                                <option value="">All districts</option>
+                            </select>
+                        </div>
+
+                        <div class="farmer-filter">
+                            <label for="dealer-verification-filter">Verification</label>
+                            <select id="dealer-verification-filter">
+                                <option value="">All verification statuses</option>
+                                <option value="verified">Verified</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+
+                        <div class="farmer-filter">
+                            <label for="dealer-status-filter">Account status</label>
+                            <select id="dealer-status-filter">
+                                <option value="">All statuses</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+
+                        <button id="reset-dealer-filters" class="secondary-btn" type="button">
+                            Reset Filters
+                        </button>
+
+                    </div>
+
+                    <!-- Results Count -->
+                    <p id="dealers-results-count" class="subtitle" aria-live="polite">
+                        Dealer records will appear here.
+                    </p>
+
+                    <!-- Dealer Table -->
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Business Name</th>
+                                    <th scope="col">Dealer Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Village</th>
+                                    <th scope="col">District</th>
+                                    <th scope="col">Account Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="dealers-body">
+                                <tr>
+                                    <td colspan="7" class="empty-state">
+                                        Dealer details will appear here after loading.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- =========================================
+                 PRODUCT SUMMARY SECTION
+            ========================================== -->
+            <section class="dashboard-section" id="products-section" hidden>
+
+                <div class="section-header">
+                    <div>
+                        <h2>Product Availability Summary</h2>
+                        <p class="subtitle">
+                            Available stock grouped by product.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Available Quantity (kg)</th>
+                                    <th scope="col">Inventory Records</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="products-body">
+                                <tr>
+                                    <td colspan="3" class="empty-state">
+                                        Product data will appear here.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =========================================
+                 INVENTORY MONITORING SECTION
+            ========================================== -->
+            <section class="dashboard-section" id="inventory-section" hidden>
+
+                <div class="section-header">
+                    <div>
+                        <h2>Inventory Across Stores</h2>
+                        <p class="subtitle">
+                            Stock availability, reservations and prices.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Store</th>
+                                    <th scope="col">District</th>
+                                    <th scope="col">Available (kg)</th>
+                                    <th scope="col">Reserved (kg)</th>
+                                    <th scope="col">Price / kg</th>
+                                    <th scope="col">Last Updated</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="inventory-body">
+                                <tr>
+                                    <td colspan="7" class="empty-state">
+                                        Inventory data will appear here.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                Smart Urea Management System |
+                Inventory figures represent recorded database information.
+            </footer>
+
+        </main>
+    </div>
+</body>
+
+</html>
