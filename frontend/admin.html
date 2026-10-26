@@ -35,19 +35,10 @@
                     <span class="nav-icon">🏪</span>
                     <span>Dealers Overview</span>
                 </button>
-
-                <button class="nav-link" type="button" data-section="products-section">
-                    Product Summary
-                </button>
-
                 <button class="nav-link" type="button" data-section="inventory-section">
                     Inventory Monitoring
                 </button>
             </nav>
-
-            <button id="logout-btn" class="logout-btn" type="button">
-                Logout
-            </button>
         </aside>
 
         <!-- Main Dashboard -->
@@ -63,9 +54,15 @@
                     </p>
                 </div>
 
-                <div class="admin-chip">
-                    <span class="admin-icon" aria-hidden="true">●</span>
-                    <span id="admin-name">Administrator</span>
+                <div class="topbar-actions">
+                    <div class="admin-chip">
+                        <span class="admin-icon" aria-hidden="true">●</span>
+                        <span id="admin-name">Administrator</span>
+                    </div>
+
+                    <button id="logout-btn" class="logout-btn topbar-logout" type="button">
+                        Logout
+                    </button>
                 </div>
             </header>
 
@@ -349,19 +346,6 @@
                         <h3 id="active-dealers-count">—</h3>
                         <p class="metric-description">Dealers with active accounts</p>
                     </article>
-
-                    <article class="metric-card">
-                        <p class="metric-label">Verified Dealers</p>
-                        <h3 id="verified-dealers-count">—</h3>
-                        <p class="metric-description">Dealers approved by admin</p>
-                    </article>
-
-                    <article class="metric-card">
-                        <p class="metric-label">Pending Verification</p>
-                        <h3 id="pending-dealers-count">—</h3>
-                        <p class="metric-description">Dealers awaiting approval</p>
-                    </article>
-
                 </div>
 
                 <!-- Registered Dealer Details -->
@@ -489,7 +473,7 @@
 
             <!-- =========================================
                  INVENTORY MONITORING SECTION
-            ========================================== -->
+            ========================================== --->
             <section class="dashboard-section" id="inventory-section" hidden>
 
                 <div class="section-header">
